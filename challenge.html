@@ -8,18 +8,64 @@
         window.addEventListener("load", () => {
             console.log("loaded via javascript");
             //TODO: add any extra onload processing you may need here
+           getCurrentSelection()
         });
         function getCurrentSelection() {
             setTimeout(() => {
                 //added this delay here as some solutions may require it to update properly (i.e., click code may complete before the navigation changes)
                 //TODO: add code for processing the current selection 
-
+                let navItems = document.getElementsByTagName('ul')[0];
+                if(navItems){
+                    navItems.innerHTML = `<li><a href="#login" onclick=updateCurrentPage('Login')>Login</a></li>`;
+                    navItems.innerHTML +=`<li><a href="#register" onclick=updateCurrentPage('Register')>register</a></li>`
+                    navItems.innerHTML +=`<li><a href="#profile" onclick=updateCurrentPage('Profile')>profile</a></li>`
+                    navItems.innerHTML +=`<li><a href="#logout" onclick=updateCurrentPage('Logout')>logout</a></li>`
+                }
                 //Note: likely you'll want to call updateCurrentPage towards the end
             }, 100);
         }
     </script>
     <style>
         /* TODO: make edits here */
+
+        nav {
+            background-color: #006289;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #0096d2;
+        }
+
+        ul:nth-child(2) li:before {
+            content: '✓';
+        }
+
+        h1,
+        a::first-letter {
+            text-transform: capitalize;
+        }
+        h2{
+            background-color: gray;;
+        }
     </style>
     <!-- make the necessary edits above this line -->
 
